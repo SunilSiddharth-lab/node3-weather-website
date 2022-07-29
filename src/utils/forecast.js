@@ -9,8 +9,9 @@ const forecast = (latitude, longitude, callback) => {
         } else if ( body.error){
             callback('Unable to forecast weather for the given latitude and longitude', undefined)
         } else {
-            callback( undefined , {
-                forecast: body.current.weather_descriptions[0] 
+            callback( 
+                undefined , {
+                    forecast:  body.current.weather_descriptions[0] + ". It is currently " + body.current.temperature + " degress out. It feels like " + body.current.feelslike + " degress out. The humidity is " + body.current.humidity + "%."
             })
         }
     })
